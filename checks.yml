@@ -1,0 +1,37 @@
+name: Comprobaciones
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Revisar, probar y construir
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Obtener el código
+        # actions/checkout v7.0.1; SHA verificado en el repositorio oficial.
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Preparar Node.js 22
+        # actions/setup-node v7.1.0; SHA verificado en el repositorio oficial.
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - name: Comprobar archivos
+        run: npm run check
+      - name: Ejecutar pruebas
+        run: npm test
+      - name: Construir archivos públicos
+        run: npm run build

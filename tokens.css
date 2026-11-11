@@ -1,0 +1,59 @@
+/* Fuentes de marca alojadas localmente;
+licencias OFL junto a cada archivo. */
+@font-face {
+  font-family: "Bricolage";
+  src: url("../assets/fonts/bricolage-grotesque-opsz.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist";
+  src: url("../assets/fonts/geist-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("../assets/fonts/geist-mono-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument";
+  src: url("../assets/fonts/instrument-serif-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+/* Un solo sistema de roles;
+cambiar la marca no requiere buscar colores sueltos. */
+:root {
+  --fondo: #f3eee6;
+  --fondo-alt: #eae4db;
+  --superficie: #fcfaf6;
+  --papel: #fffefb;
+  --tinta: #0b1526;
+  --tinta-suave: #5a606a;
+  --linea: #d8d0c4;
+  --borde-control: #7b7e83;
+  --acento: #3947ff;
+  --acento-hover: #2835d6;
+  --acento-suave: #ededff;
+  --exito: #25604b;
+  --error: #a02d33;
+  --noche: #0b1526;
+  --panel-noche: #1a273a;
+  --sobre-noche: #f3eee6;
+  --suave-noche: #b8c1d0;
+  --linea-noche: #354259;
+  --texto: "Geist", "Segoe UI", sans-serif;
+  --titular: "Bricolage", "Segoe UI", sans-serif;
+  --editorial: "Instrument", Georgia, serif;
+  --cifra: "Geist Mono", Consolas, monospace;
+  --radio: 10px;
+  --radio-grande: 18px;
+  --ancho-lateral: 248px;
+}

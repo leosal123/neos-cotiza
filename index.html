@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="es-PE">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Neos Cotiza: define un proyecto web, compara escenarios y prepara una propuesta clara. Una herramienta de portafolio de Neos Linx.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <meta name="color-scheme" content="light">
+    <title>Neos Cotiza — Una buena propuesta empieza aquí</title>
+    <link rel="icon" href="./assets/brand/neos-linx-isotipo.webp" type="image/webp">
+    <link rel="stylesheet" href="./styles/tokens.css">
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/components.css">
+    <link rel="stylesheet" href="./styles/summary.css">
+    <link rel="stylesheet" href="./styles/proposal.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/print.css" media="print">
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Ir al cotizador</a>
+
+    <!-- Iconos locales reutilizables. La marca usa su archivo original. -->
+    <svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <symbol id="icon-grid" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+          <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+        </symbol>
+        <symbol id="icon-compare" viewBox="0 0 24 24">
+          <path d="M4 20V9h6v11M14 20V4h6v16M2 20h20"/>
+        </symbol>
+        <symbol id="icon-document" viewBox="0 0 24 24">
+          <path d="M14 3H5v18h14V8ZM14 3v5h5M8 12h8M8 16h5"/>
+        </symbol>
+        <symbol id="icon-import" viewBox="0 0 24 24">
+          <path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/>
+        </symbol>
+        <symbol id="icon-help" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.9.4-.9 1-.9 2.2M12 17h.01"/>
+        </symbol>
+        <symbol id="icon-clock" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 7v5l3 2"/>
+        </symbol>
+        <symbol id="icon-page" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="16" rx="2"/>
+          <path d="M3 8h18M7 12h5M7 16h9"/>
+        </symbol>
+        <symbol id="icon-site" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="16" rx="2"/>
+          <path d="M3 8h18M8 8v12M12 12h5M12 16h5"/>
+        </symbol>
+        <symbol id="icon-shop" viewBox="0 0 24 24">
+          <path d="m4 4-1 5h18l-1-5ZM4 9v11h16V9M9 20v-7h6v7M3 9c0 3 4 3 4 0 0 3 5 3 5 0 0 3 5 3 5 0 0 3 4 3 4 0"/>
+        </symbol>
+      </defs>
+    </svg>
+
+    <div class="app-shell">
+      <!-- Navegación y firma de Neos Linx, sin ilustraciones decorativas. -->
+      <aside class="sidebar" aria-label="Herramientas del cotizador">
+        <a class="brand" href="#main" aria-label="Neos Cotiza, una herramienta de Neos Linx">
+          <span class="brand-icon-surface">
+            <img src="./assets/brand/neos-linx-isotipo.webp" alt="" width="56" height="56">
+          </span>
+          <span class="brand-words">
+            <span class="brand-company">Neos Linx</span>
+            <span class="brand-product">Cotiza<span aria-hidden="true">.</span></span>
+          </span>
+        </a>
+        <p class="sidebar-description">De un alcance bien definido<br>a una propuesta con intención.</p>
+        <nav class="side-nav" aria-label="Navegación del proyecto">
+          <a class="nav-item active" href="#services" aria-current="page">
+            <svg class="icon" aria-hidden="true"><use href="#icon-grid"/></svg>
+            Configurar proyecto
+          </a>
+          <a class="nav-item" href="#comparison">
+            <svg class="icon" aria-hidden="true"><use href="#icon-compare"/></svg>
+            Comparar escenarios
+          </a>
+          <a class="nav-item" href="#details">
+            <svg class="icon" aria-hidden="true"><use href="#icon-document"/></svg>
+            Detalles de propuesta
+          </a>
+        </nav>
+        <div class="sidebar-tools">
+          <button class="nav-item" id="import-button" type="button">
+            <svg class="icon" aria-hidden="true"><use href="#icon-import"/></svg>
+            Importar cotización
+          </button>
+          <button class="nav-item" id="guide-button" type="button">
+            <svg class="icon" aria-hidden="true"><use href="#icon-help"/></svg>
+            Guía rápida
+          </button>
+        </div>
+        <div class="sidebar-bottom">
+          <p>Una idea.<br><em>Muchas posibilidades.</em></p>
+          <span class="sidebar-signature">Estrategia que conecta.</span>
+          <span class="version">Neos Linx · Demo de portafolio</span>
+        </div>
+      </aside>
+
+      <div class="workspace">
+        <header class="topbar">
+          <span class="breadcrumb">
+            <img class="mobile-brand-icon" src="./assets/brand/neos-linx-isotipo.webp" alt="" width="32" height="32">
+            Herramientas <span aria-hidden="true">/</span> <strong>Neos Cotiza</strong>
+          </span>
+          <div class="topbar-actions">
+            <span class="privacy-chip">Tu propuesta se queda contigo</span>
+            <button id="reset-button" class="button button-small button-ghost" type="button">Nueva propuesta</button>
+          </div>
+        </header>
+        <main id="main">
+          <div class="intro">
+            <div class="intro-copy-block">
+              <span class="intro-label">El primer paso de un buen proyecto.</span>
+              <h1>Menos suposiciones.<br>Más <em>claridad.</em></h1>
+              <p class="intro-copy">Define lo que necesitas, compara posibilidades y transforma<br class="desktop-break"> la idea en una propuesta que se entiende.</p>
+            </div>
+            <div class="intro-aside">
+              <span class="intro-aside-title">Un proyecto, bien pensado.</span>
+              <p>Alcance definido.<br>Inversión visible.<br>Una decisión más fácil.</p>
+              <span class="intro-aside-foot">Hecho por Neos Linx</span>
+            </div>
+          </div>
+          <div class="mobile-tools">
+            <button id="mobile-import-button" class="button button-small button-ghost" type="button">Importar cotización</button>
+            <button id="mobile-guide-button" class="button button-small button-ghost" type="button">Guía rápida</button>
+            <a class="button button-small button-ghost" href="#comparison">Comparar</a>
+          </div>
+          <noscript>
+            <p class="notice">Activa JavaScript para calcular y guardar propuestas. Los servicios de ejemplo siguen disponibles para consultar.</p>
+          </noscript>
+          <div id="restore-banner" class="notice restore-banner" hidden>
+            <p>Hay un borrador guardado en este navegador.</p>
+            <div>
+              <button id="restore-button" class="button button-small" type="button">Recuperar borrador</button>
+              <button id="discard-button" class="button button-small button-ghost" type="button">Descartar</button>
+            </div>
+          </div>
+
+          <div class="content-grid">
+            <div class="editor">
+              <!-- Servicios base. El cálculo vive en src/quote.js. -->
+              <section id="services" class="editor-section" aria-labelledby="services-title">
+                <div class="section-heading">
+                  <div>
+                    <h2 id="services-title">La base de tu proyecto</h2>
+                    <p>Elige el formato que mejor acompaña tu siguiente paso.</p>
+                  </div>
+                  <span class="small-label">Tarifas de ejemplo</span>
+                </div>
+                <fieldset class="service-grid">
+                  <legend class="visually-hidden">Tipo de proyecto web</legend>
+                  <label class="service-card">
+                    <input type="radio" name="service" value="landing" checked>
+                    <span class="service-top">
+                      <svg class="service-icon icon" aria-hidden="true"><use href="#icon-page"/></svg>
+                      <span class="choice-dot" aria-hidden="true"></span>
+                    </span>
+                    <span class="service-purpose">Una idea enfocada</span>
+                    <strong>Landing page</strong>
+                    <span class="service-description">Una página para presentar <br>lo que haces y dar el siguiente paso.</span>
+                    <span class="service-price" data-service-price="landing">S/ 1,200.00<span>precio base</span></span>
+                    <span class="service-tag">Presencia esencial</span>
+                  </label>
+                  <label class="service-card">
+                    <input type="radio" name="service" value="corporate">
+                    <span class="service-top">
+                      <svg class="service-icon icon" aria-hidden="true"><use href="#icon-site"/></svg>
+                      <span class="choice-dot" aria-hidden="true"></span>
+                    </span>
+                    <span class="service-purpose">Un negocio con voz</span>
+                    <strong>Web corporativa</strong>
+                    <span class="service-description">Tu historia, tus servicios <br>y una presencia más completa.</span>
+                    <span class="service-price" data-service-price="corporate">S/ 2,400.00<span>precio base</span></span>
+                    <span class="service-tag">Más espacio para contar</span>
+                  </label>
+                  <label class="service-card">
+                    <input type="radio" name="service" value="ecommerce">
+                    <span class="service-top">
+                      <svg class="service-icon icon" aria-hidden="true"><use href="#icon-shop"/></svg>
+                      <span class="choice-dot" aria-hidden="true"></span>
+                    </span>
+                    <span class="service-purpose">Productos en movimiento</span>
+                    <strong>Tienda online</strong>
+                    <span class="service-description">Un catálogo preparado <br>para convertir visitas en pedidos.</span>
+                    <span class="service-price" data-service-price="ecommerce">S/ 3,800.00<span>precio base</span></span>
+                    <span class="service-tag">Una base para vender</span>
+                  </label>
+                </fieldset>
+              </section>
+
+              <!-- Extras y alcance; los importes iniciales son ilustrativos. -->
+              <section id="scope" class="editor-section" aria-labelledby="extras-title">
+                <div class="section-heading">
+                  <div>
+                    <h2 id="extras-title">Los detalles que suman</h2>
+                    <p>Añade lo que tiene sentido para este proyecto.</p>
+                  </div>
+                  <span class="section-note">Tú eliges el alcance</span>
+                </div>
+                <div class="extras-list">
+                  <label class="extra-row">
+                    <input type="checkbox" name="extra" value="contenido" checked>
+                    <span class="extra-symbol type-symbol" aria-hidden="true">Aa</span>
+                    <span class="extra-copy"><strong>Contenido que conecta</strong><span>Textos que explican lo que haces y por qué elegirte.</span></span>
+                    <span class="extra-price" data-extra-price="contenido">+ S/ 300.00</span>
+                  </label>
+                  <label class="extra-row">
+                    <input type="checkbox" name="extra" value="seo" checked>
+                    <svg class="extra-symbol icon" aria-hidden="true"><use href="#icon-site"/></svg>
+                    <span class="extra-copy"><strong>SEO inicial</strong><span>Estructura y metadatos para los buscadores.</span></span>
+                    <span class="extra-price" data-extra-price="seo">+ S/ 250.00</span>
+                  </label>
+                  <label class="extra-row">
+                    <input type="checkbox" name="extra" value="identidad">
+                    <span class="extra-symbol identity-symbol" aria-hidden="true">N</span>
+                    <span class="extra-copy"><strong>Identidad visual</strong><span>Una dirección visual para que se sienta tuyo.</span></span>
+                    <span class="extra-price" data-extra-price="identidad">+ S/ 450.00</span>
+                  </label>
+                </div>
+                <div class="scope-options">
+                  <div>
+                    <label for="extra-pages">Páginas adicionales</label>
+                    <span class="field-hint" id="pages-hint">S/ 90.00 por página · hasta 20</span>
+                  </div>
+                  <div class="stepper">
+                    <button id="pages-minus" aria-label="Quitar una página adicional" type="button">−</button>
+                    <input id="extra-pages" type="number" min="0" max="20" step="1" value="0" aria-describedby="pages-hint">
+                    <button id="pages-plus" aria-label="Agregar una página adicional" type="button">+</button>
+                  </div>
+                </div>
+                <label class="priority-row">
+                  <span><strong>Prioridad en la agenda</strong><span>Recargo de ejemplo del 20%. Plazo sujeto a coordinación.</span></span>
+                  <input id="priority" type="checkbox" role="switch">
+                  <span class="switch-track" aria-hidden="true"></span>
+                </label>
+              </section>
+
+              <!-- Comparación real: conserva extras y condiciones actuales. -->
+              <section id="comparison" class="editor-section comparison-section" aria-labelledby="comparison-title">
+                <div class="section-heading">
+                  <div>
+                    <h2 id="comparison-title">Misma idea. Distintos caminos.</h2>
+                    <p>Compara las tres bases con tus extras y condiciones actuales.</p>
+                  </div>
+                  <svg class="section-icon icon" aria-hidden="true"><use href="#icon-compare"/></svg>
+                </div>
+                <div id="comparison-options" class="comparison-grid">
+                  <p class="field-hint">La comparación se actualizará al configurar el proyecto.</p>
+                </div>
+                <p class="comparison-note">Los escenarios son estimaciones ilustrativas. El alcance y el calendario se coordinan antes de iniciar.</p>
+              </section>
+
+              <section id="details" class="editor-section" aria-labelledby="details-title">
+                <div class="section-heading">
+                  <div>
+                    <h2 id="details-title">Ponle nombre al siguiente paso</h2>
+                    <p>Los datos que convertirán este cálculo en tu propuesta.</p>
+                  </div>
+                </div>
+                <div class="field-grid">
+                  <label class="field field-wide">Nombre del proyecto
+                    <input id="project-name" type="text" maxlength="120" required value="Sitio web para Estudio Oliva" autocomplete="off">
+                  </label>
+                  <label class="field field-wide">Preparado para <span class="optional">(opcional)</span>
+                    <input id="recipient" type="text" maxlength="120" value="Estudio Oliva · ejemplo ficticio" autocomplete="off">
+                  </label>
+                  <label class="field">Fecha de emisión
+                    <input id="issued-date" type="date" required min="2000-01-01" max="2100-12-31">
+                  </label>
+                  <label class="field">Vigencia en días
+                    <input id="validity-days" type="number" min="1" max="90" step="1" value="15">
+                  </label>
+                  <label class="field">Descuento (%)
+                    <input id="discount" type="number" min="0" max="40" step="0.01" value="0">
+                  </label>
+                  <label class="field">Impuesto opcional (%)
+                    <input id="tax" type="number" min="0" max="30" step="0.01" value="0" aria-describedby="tax-hint">
+                  </label>
+                  <p class="field-hint field-wide" id="tax-hint">El impuesto se aplica después del descuento. Configúralo según tu caso.</p>
+                  <label class="field field-wide">Adelanto para iniciar
+                    <select id="advance">
+                      <option value="0">Sin adelanto</option>
+                      <option value="30">30% del total</option>
+                      <option value="50" selected>50% del total</option>
+                      <option value="100">100% del total</option>
+                    </select>
+                  </label>
+                  <label class="field field-wide">Alcance y notas <span class="optional">(opcional)</span>
+                    <textarea id="notes" maxlength="2000" rows="3">Diseño adaptable a celular, revisión de contenido y acompañamiento de entrega.</textarea>
+                  </label>
+                </div>
+              </section>
+            </div>
+
+            <aside class="summary-column" aria-label="Resumen del presupuesto">
+              <div class="summary-card">
+                <div class="summary-heading">
+                  <span>Tu propuesta, en claro.</span>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-document"/></svg>
+                </div>
+                <p class="summary-project" id="summary-project">Sitio web para Estudio Oliva</p>
+                <div id="summary-lines" class="summary-lines">
+                  <div><span>Landing de conversión</span><span>S/ 1,200.00</span></div>
+                  <div><span>Redacción de contenido</span><span>S/ 300.00</span></div>
+                  <div><span>SEO inicial</span><span>S/ 250.00</span></div>
+                </div>
+                <div class="summary-adjustments" id="summary-adjustments"></div>
+                <div class="total-block">
+                  <span>Inversión estimada</span>
+                  <output id="total" aria-live="polite" aria-atomic="true">S/ 1,750.00</output>
+                  <span class="currency-note">Soles peruanos · PEN</span>
+                </div>
+                <div class="payment-split">
+                  <div><span>Para iniciar <span id="advance-percent">(50%)</span></span><strong id="advance-amount">S/ 875.00</strong></div>
+                  <div><span>Saldo al entregar</span><strong id="balance-amount">S/ 875.00</strong></div>
+                </div>
+                <div class="timeline">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>
+                  <span><strong id="estimated-days">8 días de trabajo</strong><span>Estimación inicial, a coordinar.</span></span>
+                </div>
+                <button id="preview-button" class="button button-primary" type="button">Revisar propuesta</button>
+                <button id="download-button" class="button button-download" type="button">Guardar cotización (.json)</button>
+                <p class="summary-disclaimer">Demo de portafolio · Importes ilustrativos.<br>Sin contratación ni pagos.</p>
+              </div>
+              <div class="local-draft">
+                <label><input id="save-locally" type="checkbox"><span>Guardar borrador en este navegador</span></label>
+                <p id="storage-status">Opcional. Tus datos se quedan en este dispositivo.</p>
+                <button id="clear-storage" type="button" class="text-button">Borrar borrador local</button>
+              </div>
+              <p class="summary-footnote">Lo que se entiende bien,<br><em>empieza mejor.</em></p>
+            </aside>
+          </div>
+
+          <footer class="page-footer">
+            <span><strong>Neos Linx</strong> · Estrategia que conecta.</span>
+            <span>Diseñado para pensar el proyecto antes de construirlo.</span>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <!-- Los diálogos conservan los datos dentro de este navegador. -->
+    <input id="import-file" type="file" accept=".json,application/json" hidden>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <dialog id="guide-dialog" class="simple-dialog" aria-labelledby="guide-title">
+      <div class="dialog-bar">
+        <h2 id="guide-title">De la idea a la propuesta.</h2>
+        <button type="button" class="close-button" data-close="guide-dialog" aria-label="Cerrar guía">×</button>
+      </div>
+      <ol class="guide-list">
+        <li><strong>Define lo esencial.</strong><p>Elige el servicio y sus extras. El presupuesto se actualiza en el momento; los precios son ejemplos editables del proyecto.</p></li>
+        <li><strong>Compara antes de decidir.</strong><p>El comparador mantiene tus extras y condiciones. Puedes cambiar de base viendo el total, la diferencia y el plazo inicial.</p></li>
+        <li><strong>Haz la propuesta tuya.</strong><p>Ajusta nombre, alcance, condiciones y adelanto. Revisa la propuesta para imprimirla o guardarla como PDF desde el navegador.</p></li>
+        <li><strong>Retómala cuando quieras.</strong><p>Descarga el JSON y vuelve a abrirlo desde “Importar cotización”. También puedes activar un borrador local en tu navegador.</p></li>
+      </ol>
+      <p class="notice">No hay cuentas, pagos ni envíos. La descarga contiene los textos que escribas; revísalos antes de compartirla.</p>
+    </dialog>
+
+    <dialog id="reset-dialog" class="simple-dialog" aria-labelledby="reset-title">
+      <div class="dialog-bar">
+        <h2 id="reset-title">¿Una nueva idea?</h2>
+        <button type="button" class="close-button" data-close="reset-dialog" aria-label="Cancelar y cerrar">×</button>
+      </div>
+      <p>La propuesta actual se reemplazará por el ejemplo inicial. Puedes descargarla primero para conservarla.</p>
+      <div class="dialog-actions">
+        <button class="button button-ghost" data-close="reset-dialog" type="button">Seguir editando</button>
+        <button class="button button-primary" id="confirm-reset" type="button">Empezar de nuevo</button>
+      </div>
+    </dialog>
+
+    <dialog id="proposal-dialog" class="proposal-dialog" aria-labelledby="proposal-title">
+      <div class="proposal-toolbar">
+        <span>Vista previa de tu propuesta</span>
+        <div>
+          <button type="button" id="print-button" class="button button-primary button-small">Imprimir / Guardar PDF</button>
+          <button type="button" class="close-button" data-close="proposal-dialog" aria-label="Cerrar propuesta">×</button>
+        </div>
+      </div>
+      <article id="proposal" class="proposal-paper">
+        <header class="proposal-header">
+          <div class="proposal-brand">
+            <img src="./assets/brand/neos-linx-isotipo.webp" alt="" width="48" height="48">
+            <span>Neos Linx<small>Estrategia que conecta.</small></span>
+          </div>
+          <span class="proposal-type">Propuesta de proyecto web</span>
+        </header>
+        <div class="proposal-intro">
+          <p>Una idea que empieza a tomar forma.</p>
+          <h1 id="proposal-title">Tu proyecto web</h1>
+          <p id="proposal-recipient"></p>
+        </div>
+        <dl id="proposal-meta" class="proposal-meta"></dl>
+        <table class="proposal-table">
+          <caption>Detalle del presupuesto</caption>
+          <thead><tr><th scope="col">Concepto</th><th scope="col">Importe</th></tr></thead>
+          <tbody id="proposal-rows"></tbody>
+        </table>
+        <dl id="proposal-totals" class="proposal-totals"></dl>
+        <section class="proposal-notes">
+          <h2>Alcance y condiciones</h2>
+          <p id="proposal-notes"></p>
+          <p id="proposal-payment"></p>
+          <p id="proposal-timing"></p>
+        </section>
+        <footer class="proposal-footer">
+          <strong>Neos Cotiza · Demo de portafolio</strong>
+          <p>Datos e importes ilustrativos. Este documento no constituye una oferta comercial ni confirma contrataciones o pagos.</p>
+        </footer>
+      </article>
+    </dialog>
+  </body>
+</html>

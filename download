@@ -1,0 +1,25 @@
+# Salida generada y herramientas locales
+dist/
+release/
+node_modules/
+coverage/
+test-results/
+work/
+*.log
+
+# Datos privados y descargas: no forman parte del ejemplo público
+private/
+exports/
+cotizacion-*.json
+neos-cotiza-*.json
+propuesta-*.pdf
+!examples/propuesta-ejemplo.pdf
+.env
+.env.*
+
+# Archivos del editor y del sistema
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini

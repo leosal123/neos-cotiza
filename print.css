@@ -1,0 +1,103 @@
+/* Una impresión A4 contiene únicamente la propuesta, incluso desde Ctrl+P. */
+@page {
+  size: A4;
+  margin: 15mm;
+  @bottom-left {
+    content: "Neos Linx · Propuesta de proyecto web";
+    color: #5a606a;
+    font-family: "Geist", sans-serif;
+    font-size: 8pt;
+  }
+  @bottom-right {
+    content: "Página " counter(page) " de " counter(pages);
+    color: #5a606a;
+    font-family: "Geist", sans-serif;
+    font-size: 8pt;
+  }
+}
+@media print {
+  html, body {
+    margin: 0 !important;
+    background: #fff !important;
+    color: #0b1526 !important;
+    font-size: 11pt;
+  }
+  body > .app-shell, body > .skip-link, body > .icon-library,
+  body > .toast, body > input, body > dialog:not(#proposal-dialog) {
+    display: none !important;
+  }
+  #proposal-dialog {
+    display: block !important;
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+  #proposal-dialog::backdrop, .proposal-toolbar {
+    display: none !important;
+  }
+  .proposal-paper {
+    padding: 0;
+    background: #fff;
+  }
+  .proposal-header {
+    padding-bottom: 7mm;
+  }
+  .proposal-intro {
+    margin: 9mm 0 7mm;
+  }
+  .proposal-intro h1 {
+    font-size: 27pt;
+  }
+  .proposal-type {
+    font-size: 9pt;
+  }
+  .proposal-meta {
+    gap: 10mm;
+    margin-bottom: 7mm;
+    font-size: 9pt;
+  }
+  .proposal-table {
+    font-size: 10pt;
+  }
+  .proposal-table th, .proposal-table td:last-child {
+    font-size: 9pt;
+  }
+  .proposal-table td {
+    padding: 3mm 0;
+  }
+  .proposal-totals, .proposal-totals dd {
+    font-size: 10pt;
+  }
+  .proposal-totals .grand-total {
+    font-size: 18pt;
+  }
+  .proposal-notes {
+    margin-top: 8mm;
+    font-size: 9pt;
+  }
+  .proposal-footer {
+    margin-top: 8mm;
+    font-size: 8pt;
+  }
+  .proposal-header, .proposal-intro, .proposal-meta,
+  .proposal-totals, .proposal-footer, tr {
+    break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  .proposal-notes p {
+    orphans: 3;
+    widows: 3;
+  }
+}
