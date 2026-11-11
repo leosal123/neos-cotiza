@@ -37,7 +37,7 @@ npm run build
 npm run preview
 ```
 
-`check` revisa sintaxis, recursos locales, CSP y patrones limitados de secretos. Las pruebas usan `node --test`. El build prepara `dist/`; `preview` sirve ese resultado en el mismo puerto. Detén antes el servidor que ya lo esté usando. El workflow de GitHub comprueba el proyecto y no despliega.
+`check` revisa sintaxis, recursos locales, CSP y patrones limitados de secretos. Las pruebas usan `node --test`. El build prepara `dist/`; `preview` sirve ese resultado en el mismo puerto. Detén antes el servidor que ya lo esté usando. La [CI con Node 22](https://github.com/leosal123/neos-cotiza/actions/runs/42960627849) completó `check`, pruebas y build; no despliega.
 
 ## Crear paquetes
 
@@ -78,4 +78,4 @@ El borrador opcional utiliza `localStorage`, clave `neos-cotiza:draft:v1`, sin c
 
 El estado de las pruebas y las revisiones pendientes está en [Verificación de la versión 1.1.1](docs/VERIFICACION.md). La [revisión de seguridad de la versión 1.0.0](docs/SEGURIDAD-PREPUBLICACION.md) se conserva como antecedente histórico.
 
-No se ha publicado esta versión ni se ha elegido la cuenta, el repositorio o el alojamiento de destino. Los pasos de publicación están documentados para cuando se defina ese destino.
+El código está publicado en [leosal123/neos-cotiza](https://github.com/leosal123/neos-cotiza), repositorio público con rama `main`. GitHub Pages y el hosting de la app aún no están configurados; no hay una demo en Internet verificada. La guía de personalización incluye los pasos para alojar `dist/` cuando se elija ese destino.

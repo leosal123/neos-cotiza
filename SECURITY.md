@@ -27,7 +27,7 @@ Node.js proporciona herramientas y un servidor de archivos para desarrollo, vinc
 
 La app no incorpora llamadas a servicios externos, fuentes remotas ni librerías de CDN. El isotipo y las cuatro fuentes se sirven localmente; sus avisos de origen están en [RECURSOS.md](docs/RECURSOS.md). Una vez alojada, el proveedor puede conservar registros de acceso, y el contenido público de la demo será accesible a terceros. Revisa la configuración efectiva del alojamiento antes de usarlo con información real; una política CSP en HTML no configura todas las cabeceras HTTP del servidor.
 
-El workflow de comprobación usa permisos `contents: read`, no conserva credenciales de checkout y no tiene pasos de publicación. Las acciones se fijan a un SHA completo verificado en sus repositorios oficiales. Al actualizarlas, revisa el cambio y conserva el SHA completo.
+El workflow de comprobación usa permisos `contents: read`, no conserva credenciales de checkout y no tiene pasos de despliegue. La [ejecución con Node 22](https://github.com/leosal123/neos-cotiza/actions/runs/42960627849) completó `check`, pruebas y build. Las acciones se fijan a un SHA completo verificado en sus repositorios oficiales. Al actualizarlas, revisa el cambio y conserva el SHA completo.
 
 `npm run check` incluye en su búsqueda de patrones los archivos de pruebas y el build estático existente. Excluye `.git`, `node_modules` y `work`. El detector informa nombres de archivo, sin imprimir valores sospechosos. No analiza el historial Git ni todos los formatos posibles de credencial: revisa también el contenido y los commits que enviarás.
 
@@ -37,6 +37,6 @@ El estado de la versión 1.1.1 figura en [VERIFICACION.md](docs/VERIFICACION.md)
 
 ## Informar de un problema
 
-El repositorio de destino y un canal privado de contacto aún no se han definido. No publiques credenciales ni información personal en un issue. Cuando se habilite un canal privado, facilita una descripción, pasos de reproducción con datos ficticios y el impacto observado; no hagas pruebas contra sistemas de terceros.
+El repositorio público es [leosal123/neos-cotiza](https://github.com/leosal123/neos-cotiza). El canal privado para reportar problemas de seguridad todavía no está definido. No publiques credenciales ni información personal en un issue. Cuando se habilite un canal privado, facilita una descripción, pasos de reproducción con datos ficticios y el impacto observado; no hagas pruebas contra sistemas de terceros.
 
 Esta guía describe el alcance técnico y las precauciones de uso. No certifica ausencia de vulnerabilidades ni cumplimiento legal.

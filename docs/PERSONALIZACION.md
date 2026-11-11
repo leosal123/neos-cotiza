@@ -46,23 +46,23 @@ Los archivos descargados desde la demo pueden contener lo que haya escrito quien
 
 Ejecuta `npm run package` para construir la web y generar en `release/` el ZIP de fuentes, el ZIP web y `SHA256SUMS.txt`. La carpeta `release/` queda fuera del repositorio y de los paquetes. El ejemplo ficticio `examples/propuesta-ejemplo.pdf` es el único PDF admitido por el empaquetador; conserva las cotizaciones privadas fuera del proyecto.
 
-## Subir el código a GitHub
+## Repositorio en GitHub
 
-Primero elige la cuenta propietaria, el nombre y la visibilidad del repositorio. Esta entrega no fija una identidad de GitHub ni crea un repositorio. Revisa el contenido y la configuración antes del primer envío; no incluyas credenciales, archivos de clientes ni borradores personales.
+El código está publicado en [leosal123/neos-cotiza](https://github.com/leosal123/neos-cotiza), repositorio público con rama `main`. Antes de enviar cambios, revisa el contenido y la configuración; no incluyas credenciales, archivos de clientes ni borradores personales.
 
 Usa como raíz del repositorio únicamente la carpeta del proyecto. Mantén fuera la carpeta de trabajo que la contiene, los informes privados de herramientas y los demás proyectos. Antes del envío, revisa la lista de archivos preparados para el commit y cualquier historial existente. Si preparas un ZIP de fuentes, comprueba que no incluya un directorio `.git`, borradores ni archivos ajenos al proyecto.
 
-El workflow `.github/workflows/checks.yml` solo comprueba el código en GitHub. No configura hosting, no publica Pages y no necesita secretos de despliegue. Que un repositorio sea público no define por sí solo una licencia para reutilizar su contenido; la licencia de distribución queda pendiente de decisión.
+El workflow `.github/workflows/checks.yml` completó `check`, pruebas y build con Node 22 en [esta ejecución](https://github.com/leosal123/neos-cotiza/actions/runs/42960627849). No configura hosting, no publica Pages y no necesita secretos de despliegue. Que un repositorio sea público no define por sí solo una licencia para reutilizar su contenido; la licencia de distribución queda pendiente de decisión.
 
 ## Publicar `dist/` en GitHub Pages
 
-Estos pasos son una guía para un destino que aún debe elegirse. No se ha realizado una publicación.
+El repositorio ya es público. GitHub Pages y el hosting de la app todavía no están configurados, y no se ha verificado una demo en Internet. Estos pasos describen una futura publicación de la aplicación.
 
 GitHub Pages puede publicar desde la raíz de una rama o desde su carpeta `/docs`; no permite elegir `/dist` como carpeta de origen de una rama. Para esta estructura, una opción manual es copiar **el contenido** de `dist/` a la raíz de una rama dedicada, por ejemplo `gh-pages`, y seleccionar esa rama con `/(root)` en **Settings → Pages → Deploy from a branch**. Conserva el archivo vacío `.nojekyll` que ya incluye el build en la raíz publicada para servir los archivos estáticos sin el procesamiento de Jekyll. Véanse las instrucciones oficiales para [configurar el origen](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) y [crear el sitio](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site).
 
-Mantén el código fuente en la rama de desarrollo. No selecciones la carpeta `docs/` de este proyecto como origen: contiene documentación, no el build. Cada actualización del sitio requiere generar y revisar un nuevo `dist/`, copiarlo a la rama de publicación y enviar ese cambio.
+Mantén el código fuente en `main`. No selecciones la carpeta `docs/` de este proyecto como origen: contiene documentación, no el build. Cada actualización del sitio requiere generar y revisar un nuevo `dist/`, copiarlo a la rama de publicación y enviar ese cambio.
 
-Un sitio de proyecto suele quedar bajo `https://CUENTA.github.io/REPOSITORIO/`. `CUENTA` y `REPOSITORIO` son marcadores de ejemplo. Prueba esa subruta y la carga de CSS, módulos, icono e impresión; evita cambiar las referencias locales a rutas que empiecen por `/`. Activa HTTPS en el destino y comprueba la URL efectiva después de publicar. El sitio de Pages es público, incluso en los planes que permiten alojarlo desde un repositorio privado. [Disponibilidad y exposición de Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site).
+Tras configurar Pages, usa la URL que indique GitHub y comprueba la subruta de proyecto `/neos-cotiza/`, junto con la carga de CSS, módulos, isotipo e impresión. Conserva las referencias relativas, activa HTTPS y comprueba la URL efectiva. El sitio de Pages es público, incluso en los planes que permiten alojarlo desde un repositorio privado. [Disponibilidad y exposición de Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site).
 
 ## Otro hosting estático
 
